@@ -16,29 +16,50 @@
 </head>
 <body>
     <?php
-        //definimos las variables
-        $nombre = "";
-        $numero = "";
-        $agenda = array();
+        //declaración de las variables
+        if (isset($_GET["nombre"])) {
+            $nombre = ($_GET["nombre"]);
+        } else {
+            $nombre = "";
+        }
+
+        $telefono = isset($_GET["telefono"]) ? $_GET["telefono"] : $telefono = "";
+
+        if (isset($_GET["agenda"])) {
+            $agenda = $_GET["agenda"];
+        } else {
+            $agenda = [];
+        }
+
+        if (isset($_GET["submit"])) {
+            $nombre_nuevo = $_GET["nombre"];
+            $telefono_nuevo = $_GET["telefono"];
+            if (empty($telefono_nuevo)) {
+                unset($agenda[$nombre_nuevo]);
+            } else {
+                $agenda[$nombre] = $telefono;
+            }
+        }
     ?>
-    <h1>Agenda</h1>
+
+    <h2>Agenda</h2>
     <form method="get">
-        Introduzca el nombre del contacto:<br>
-        <input type="text" name="nombre">
-        <br>
-        Introduzca el número del contacto:<br>
-        <input type="text" name="numero">
+        <?php 
+            foreach ($agenda as $nombre => $telefono) {
+                echo "<input type='hidden' name='agenda[".$nombre."]' value='".$telefono."'>";
+            }
+        ?>
+        Nombre: <input type="text" name="nombre">
         <br><br>
-        <input type="submit" value="Guardar">
+        Telefono: <input type="text" name="telefono">
+        <input type="submit" name="submit" value="Guardar">  
     </form>
 
     <?php
-        if (isset($_GET["submit"])) {
-            $nombre = $_GET["nombre"];
-            $numero = $_GET["numero"];
-            echo $nombre;
-            echo $numero;
-        }
+      
+
+        echo "<h2>Tu agenda:</h2>";
+        print_r($agenda);
     ?>
 </body>
 </html>
