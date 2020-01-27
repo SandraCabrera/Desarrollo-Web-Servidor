@@ -77,7 +77,7 @@ $(document).ready(function(){
 
         // submit form data to api
         $.ajax({
-            url: "http://localhost/api/product/create.php",
+            url: "http://localhost/Desarrollo-Web-Servidor/SimpleRestAPI/api/product/create.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,
