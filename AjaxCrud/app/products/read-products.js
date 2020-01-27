@@ -69,5 +69,8 @@ function showProducts(){
 
         // inject to 'page-content' of our app
         $("#page-content").html(read_products_html);
+
+        // chage page title
+        changePageTitle("Read Products");
     });
 }
