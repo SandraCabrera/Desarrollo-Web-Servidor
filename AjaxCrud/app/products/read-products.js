@@ -13,7 +13,7 @@ $(document).ready(function(){
 // function to show list of products
 function showProducts(){
     // get list of products from the API
-    $.getJSON("http://localhost/api/product/read.php", function(data){
+    $.getJSON("http://localhost/Desarrollo-Web-Servidor/SimpleRestAPI/api/product/read.php", function(data){
     
     });
 }
