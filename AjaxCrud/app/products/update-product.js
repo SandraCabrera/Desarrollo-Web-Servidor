@@ -30,7 +30,11 @@ $(document).ready(function(){
                     });
                     categories_options_html+=`</select>`;
                 
-                // update product html will be here
+                // store 'update product' html to this variable
+                var update_product_html=`
+                <div id='read-products' class='btn btn-primary pull-right m-b-15px read-products-button'>
+                    <span class='glyphicon glyphicon-list'></span> Read Products
+                </div>
             });
         });
     });
