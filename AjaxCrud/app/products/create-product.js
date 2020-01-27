@@ -20,6 +20,47 @@ $(document).ready(function(){
             <div id='read-products' class='btn btn-primary pull-right m-b-15px read-products-button'>
                 <span class='glyphicon glyphicon-list'></span> Read Products
             </div>
+
+            <!-- 'create product' html form -->
+            <form id='create-product-form' action='#' method='post' border='0'>
+                <table class='table table-hover table-responsive table-bordered'>
+            
+                    <!-- name field -->
+                    <tr>
+                        <td>Name</td>
+                        <td><input type='text' name='name' class='form-control' required /></td>
+                    </tr>
+            
+                    <!-- price field -->
+                    <tr>
+                        <td>Price</td>
+                        <td><input type='number' min='1' name='price' class='form-control' required /></td>
+                    </tr>
+            
+                    <!-- description field -->
+                    <tr>
+                        <td>Description</td>
+                        <td><textarea name='description' class='form-control' required></textarea></td>
+                    </tr>
+            
+                    <!-- categories 'select' field -->
+                    <tr>
+                        <td>Category</td>
+                        <td>` + categories_options_html + `</td>
+                    </tr>
+            
+                    <!-- button to submit form -->
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type='submit' class='btn btn-primary'>
+                                <span class='glyphicon glyphicon-plus'></span> Create Product
+                            </button>
+                        </td>
+                    </tr>
+            
+                </table>
+            </form>`;
         });
     });
  
