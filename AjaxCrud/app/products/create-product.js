@@ -72,6 +72,7 @@ $(document).ready(function(){
  
     // will run if create product form was submitted
     $(document).on('submit', '#create-product-form', function(){
-        // form data will be here
+        // get form data
+        var form_data=JSON.stringify($(this).serializeObject());
     });
 });
