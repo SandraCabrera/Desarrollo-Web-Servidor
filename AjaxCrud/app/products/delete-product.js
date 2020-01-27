@@ -20,7 +20,25 @@ $(document).ready(function(){
                 }
             },
             callback: function (result) {
-                // delete request will be here
+                if(result==true){
+ 
+                    // send delete request to api / remote server
+                    $.ajax({
+                        url: "http://localhost/api/product/delete.php",
+                        type : "POST",
+                        dataType : 'json',
+                        data : JSON.stringify({ id: product_id }),
+                        success : function(result) {
+                 
+                            // re-load list of products
+                            showProducts();
+                        },
+                        error: function(xhr, resp, text) {
+                            console.log(xhr, resp, text);
+                        }
+                    });
+                 
+                }
             }
         });
     });
