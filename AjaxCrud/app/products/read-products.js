@@ -66,5 +66,8 @@ function showProducts(){
         
         // end table
         read_products_html+=`</table>`;
+
+        // inject to 'page-content' of our app
+        $("#page-content").html(read_products_html);
     });
 }
