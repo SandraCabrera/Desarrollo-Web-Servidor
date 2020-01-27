@@ -10,4 +10,7 @@ $(document).ready(function(){
  
 });
  
-// showProducts() method will be here
+// function to show list of products
+function showProducts(){
+ 
+}
