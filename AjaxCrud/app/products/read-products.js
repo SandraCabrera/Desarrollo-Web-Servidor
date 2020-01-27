@@ -20,5 +20,21 @@ function showProducts(){
         <div id='create-product' class='btn btn-primary pull-right m-b-15px create-product-button'>
             <span class='glyphicon glyphicon-plus'></span> Create Product
         </div>
+
+        <!-- start table -->
+        <table class='table table-bordered table-hover'>
+        
+            <!-- creating our table heading -->
+            <tr>
+                <th class='w-25-pct'>Name</th>
+                <th class='w-10-pct'>Price</th>
+                <th class='w-15-pct'>Category</th>
+                <th class='w-25-pct text-align-center'>Action</th>
+            </tr>`;
+            
+            // rows will be here
+        
+        // end table
+        read_products_html+=`</table>`;
     });
 }
