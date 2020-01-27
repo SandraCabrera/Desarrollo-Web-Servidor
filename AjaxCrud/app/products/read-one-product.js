@@ -8,7 +8,13 @@ $(document).ready(function(){
 
     // read product record based on given ID
     $.getJSON("http://localhost/Desarrollo-Web-Servidor/SimpleRestAPI/api/product/read_one.php?id=" + id, function(data){
-        // read products button will be here
+        // start html
+        var read_one_product_html=`
+        
+        <!-- when clicked, it will show the product's list -->
+        <div id='read-products' class='btn btn-primary pull-right m-b-15px read-products-button'>
+            <span class='glyphicon glyphicon-list'></span> Read Products
+        </div>
     });
  
 });
