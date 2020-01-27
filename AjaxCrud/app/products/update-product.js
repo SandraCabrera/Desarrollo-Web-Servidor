@@ -99,7 +99,7 @@ $(document).ready(function(){
 
         // submit form data to api
         $.ajax({
-            url: "http://localhost/api/product/update.php",
+            url: "http://localhost/Desarrollo-Web-Servidor/SimpleRestAPI/api/product/update.php",
             type : "POST",
             contentType : 'application/json',
             data : form_data,
