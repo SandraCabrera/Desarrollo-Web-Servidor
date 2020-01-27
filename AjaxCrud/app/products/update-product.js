@@ -15,7 +15,23 @@ $(document).ready(function(){
             var category_id = data.category_id;
             var category_name = data.category_name;
             
-            // load list of categories will be here
+            // load list of categories
+            $.getJSON("http://localhost/api/category/read.php", function(data){
+            
+                // build 'categories option' html
+                // loop through returned list of data
+                    var categories_options_html=`<select name='category_id' class='form-control'>`;
+            
+                    $.each(data.records, function(key, val){
+                        // pre-select option is category id is the same
+                        if(val.id==category_id){ categories_options_html+=`<option value='` + val.id + `' selected>` + val.name + `</option>`; }
+            
+                        else{ categories_options_html+=`<option value='` + val.id + `'>` + val.name + `</option>`; }
+                    });
+                    categories_options_html+=`</select>`;
+                
+                // update product html will be here
+            });
         });
     });
      
