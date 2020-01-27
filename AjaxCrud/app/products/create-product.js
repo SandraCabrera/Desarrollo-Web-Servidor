@@ -61,6 +61,12 @@ $(document).ready(function(){
             
                 </table>
             </form>`;
+
+            // inject html to 'page-content' of our app
+            $("#page-content").html(create_product_html);
+            
+            // chage page title
+            changePageTitle("Create Product");
         });
     });
  
