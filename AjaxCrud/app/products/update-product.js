@@ -91,5 +91,11 @@ $(document).ready(function(){
         });
     });
      
-    // 'update product form' submit handle will be here
+    // will run if 'create product' form was submitted
+    $(document).on('submit', '#update-product-form', function(){
+        
+        // get form data will be here 
+        
+        return false;
+    });
 });
