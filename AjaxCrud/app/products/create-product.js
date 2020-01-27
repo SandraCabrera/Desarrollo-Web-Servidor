@@ -11,6 +11,15 @@ $(document).ready(function(){
                 categories_options_html+=`<option value='` + val.id + `'>` + val.name + `</option>`;
             });
             categories_options_html+=`</select>`;
+
+            // we have our html form here where product information will be entered
+            // we used the 'required' html5 property to prevent empty fields
+            var create_product_html=`
+            
+            <!-- 'read products' button to show list of products -->
+            <div id='read-products' class='btn btn-primary pull-right m-b-15px read-products-button'>
+                <span class='glyphicon glyphicon-list'></span> Read Products
+            </div>
         });
     });
  
