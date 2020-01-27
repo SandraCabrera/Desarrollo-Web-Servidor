@@ -70,5 +70,8 @@ $(document).ready(function(){
         });
     });
  
-    // 'create product form' handle will be here
+    // will run if create product form was submitted
+    $(document).on('submit', '#create-product-form', function(){
+        // form data will be here
+    });
 });
