@@ -40,7 +40,14 @@ if($jwt){
         // decode jwt
         $decoded = JWT::decode($jwt, $key, array('HS256'));
  
-        // set user property values here
+        // set user property values
+        $user->firstname = $data->firstname;
+        $user->lastname = $data->lastname;
+        $user->email = $data->email;
+        $user->password = $data->password;
+        $user->id = $decoded->data->id;
+        
+        // update user will be here
     }
  
     // if decode fails, it means jwt is invalid
