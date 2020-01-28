@@ -323,7 +323,11 @@
                     $('#content').html(html);
                 })
              
-                // error message when jwt is invalid will be here
+                // on error/fail, tell the user he needs to login to show the account page
+                .fail(function(result){
+                    showLoginPage();
+                    $('#response').html("<div class='alert alert-danger'>Please login to access the account page.</div>");
+                });
             }
 
             // function to make form values to json format
