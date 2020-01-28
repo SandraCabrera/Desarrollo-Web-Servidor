@@ -130,7 +130,12 @@
                 return false;
             });
 
-            // show login form trigger will be here
+            // show login form
+            $(document).on('click', '#login', function(){
+                showLoginPage();
+            });
+            
+            // login form submit trigger will be here
 
             // remove any prompt messages
             function clearResponse() {
