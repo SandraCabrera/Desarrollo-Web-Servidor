@@ -188,7 +188,16 @@
                 // validate jwt to verify access
                 var jwt = getCookie('jwt');
             
-                // get form data and jwt here
+                // get form data
+                var update_account_form_obj = update_account_form.serializeObject()
+                
+                // add jwt on the object
+                update_account_form_obj.jwt = jwt;
+                
+                // convert object to json string
+                var form_data=JSON.stringify(update_account_form_obj);
+                
+                // send data to api here
             
                 return false;
             });
