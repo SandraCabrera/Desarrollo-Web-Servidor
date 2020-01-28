@@ -20,4 +20,26 @@ $data = json_decode(file_get_contents("php://input"));
 // get jwt
 $jwt=isset($data->jwt) ? $data->jwt : "";
  
-// decode jwt here
+// if jwt is not empty
+if($jwt){
+ 
+    // if decode succeed, show user details
+    try {
+        // decode jwt
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+ 
+        // set response code
+        http_response_code(200);
+ 
+        // show user details
+        echo json_encode(array(
+            "message" => "Access granted.",
+            "data" => $decoded->data
+        ));
+ 
+    }
+ 
+    // catch will be here
+}
+ 
+// error if jwt is empty will be here
