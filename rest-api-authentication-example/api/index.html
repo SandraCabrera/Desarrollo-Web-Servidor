@@ -158,7 +158,11 @@
                         $('#response').html("<div class='alert alert-success'>Successful login.</div>");
                 
                     },
-                    // error response will be here
+                    error: function(xhr, resp, text){
+                        // on error, tell the user login has failed & empty the input boxes
+                        $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
+                        login_form.find('input').val('');
+                    }
                 });
             
                 return false;
