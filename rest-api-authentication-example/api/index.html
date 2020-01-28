@@ -135,7 +135,19 @@
                 showLoginPage();
             });
             
-            // login form submit trigger will be here
+            // trigger when login form is submitted
+            $(document).on('submit', '#login_form', function(){
+            
+                // get form data
+                var login_form=$(this);
+                var form_data=JSON.stringify(login_form.serializeObject());
+            
+                // http request will be here
+            
+                return false;
+            });
+            
+            // trigger to show home page will be here
 
             // remove any prompt messages
             function clearResponse() {
