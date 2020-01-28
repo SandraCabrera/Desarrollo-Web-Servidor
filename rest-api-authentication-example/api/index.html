@@ -232,7 +232,19 @@
                 var jwt = getCookie('jwt');
                 $.post("api/validate_token.php", JSON.stringify({ jwt:jwt })).done(function(result) {
             
-                    // home page html will be here
+                    // if valid, show homepage
+                    var html = `
+                    <div class="card">
+                        <div class="card-header">Welcome to Home!</div>
+                        <div class="card-body">
+                            <h5 class="card-title">You are logged in.</h5>
+                            <p class="card-text">You won't be able to access the home and account pages if you are not logged in.</p>
+                        </div>
+                    </div>
+                    `;
+
+                    $('#content').html(html);
+                    showLoggedInMenu();
                 })
             
                 // show login page on error will be here
