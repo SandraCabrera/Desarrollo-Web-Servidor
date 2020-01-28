@@ -268,7 +268,14 @@
                 return "";
             }
             
-            // showLoggedInMenu() will be here
+            // if the user is logged in
+            function showLoggedInMenu(){
+                // hide login and sign up from navbar & show logout button
+                $("#login, #sign_up").hide();
+                $("#logout").show();
+            }
+            
+            // showUpdateAccountForm() will be here
 
             // function to make form values to json format
             $.fn.serializeObject = function(){
