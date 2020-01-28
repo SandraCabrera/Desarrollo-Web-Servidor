@@ -197,7 +197,23 @@
                 // convert object to json string
                 var form_data=JSON.stringify(update_account_form_obj);
                 
-                // send data to api here
+                // submit form data to api
+                $.ajax({
+                    url: "api/update_user.php",
+                    type : "POST",
+                    contentType : 'application/json',
+                    data : form_data,
+                    success : function(result) {
+                
+                        // tell the user account was updated
+                        $('#response').html("<div class='alert alert-success'>Account was updated.</div>");
+                
+                        // store new jwt to coookie
+                        setCookie("jwt", result.jwt, 1);
+                    },
+                
+                    // errors will be handled here
+                });
             
                 return false;
             });
