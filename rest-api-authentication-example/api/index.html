@@ -168,7 +168,13 @@
                 return false;
             });
             
-            // trigger to show home page will be here
+            // show home page
+            $(document).on('click', '#home', function(){
+                showHomePage();
+                clearResponse();
+            });
+            
+            // trigger to show account form will be here 
 
             // remove any prompt messages
             function clearResponse() {
