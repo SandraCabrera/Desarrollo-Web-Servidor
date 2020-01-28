@@ -289,7 +289,38 @@
                 var jwt = getCookie('jwt');
                 $.post("api/validate_token.php", JSON.stringify({ jwt:jwt })).done(function(result) {
              
-                    // html form for updating user account will be here
+                    // if response is valid, put user details in the form
+                    var html = `
+                    <h2>Update Account</h2>
+                    <form id='update_account_form'>
+                        <div class="form-group">
+                            <label for="firstname">Firstname</label>
+                            <input type="text" class="form-control" name="firstname" id="firstname" required value="` + result.data.firstname + `" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname">Lastname</label>
+                            <input type="text" class="form-control" name="lastname" id="lastname" required value="` + result.data.lastname + `" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" required value="` + result.data.email + `" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" />
+                        </div>
+
+                        <button type='submit' class='btn btn-primary'>
+                            Save Changes
+                        </button>
+                    </form>
+                    `;
+
+                    clearResponse();
+                    $('#content').html(html);
                 })
              
                 // error message when jwt is invalid will be here
