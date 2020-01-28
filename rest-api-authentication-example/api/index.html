@@ -142,7 +142,24 @@
                 var login_form=$(this);
                 var form_data=JSON.stringify(login_form.serializeObject());
             
-                // http request will be here
+                // submit form data to api
+                $.ajax({
+                    url: "api/login.php",
+                    type : "POST",
+                    contentType : 'application/json',
+                    data : form_data,
+                    success : function(result){
+                
+                        // store jwt to cookie
+                        setCookie("jwt", result.jwt, 1);
+                
+                        // show home page & tell the user it was a successful login
+                        showHomePage();
+                        $('#response').html("<div class='alert alert-success'>Successful login.</div>");
+                
+                    },
+                    // error response will be here
+                });
             
                 return false;
             });
