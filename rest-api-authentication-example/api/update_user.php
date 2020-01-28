@@ -31,4 +31,19 @@ $data = json_decode(file_get_contents("php://input"));
 // get jwt
 $jwt=isset($data->jwt) ? $data->jwt : "";
  
-// decode jwt here
+// if jwt is not empty
+if($jwt){
+ 
+    // if decode succeed, show user details
+    try {
+ 
+        // decode jwt
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+ 
+        // set user property values here
+    }
+ 
+    // catch failed decoding will be here
+}
+ 
+// error message if jwt is empty will be here
