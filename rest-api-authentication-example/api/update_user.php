@@ -49,7 +49,31 @@ if($jwt){
         
         // update the user record
         if($user->update()){
-            // regenerate jwt will be here
+            // we need to re-generate jwt because user details might be different
+            $token = array(
+                "iss" => $iss,
+                "aud" => $aud,
+                "iat" => $iat,
+                "nbf" => $nbf,
+                "data" => array(
+                    "id" => $user->id,
+                    "firstname" => $user->firstname,
+                    "lastname" => $user->lastname,
+                    "email" => $user->email
+                )
+            );
+            $jwt = JWT::encode($token, $key);
+            
+            // set response code
+            http_response_code(200);
+            
+            // response in json format
+            echo json_encode(
+                    array(
+                        "message" => "User was updated.",
+                        "jwt" => $jwt
+                    )
+                );
         }
         
         // message if unable to update user
