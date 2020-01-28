@@ -284,7 +284,16 @@
                 $("#logout").show();
             }
             
-            // showUpdateAccountForm() will be here
+            function showUpdateAccountForm(){
+                // validate jwt to verify access
+                var jwt = getCookie('jwt');
+                $.post("api/validate_token.php", JSON.stringify({ jwt:jwt })).done(function(result) {
+             
+                    // html form for updating user account will be here
+                })
+             
+                // error message when jwt is invalid will be here
+            }
 
             // function to make form values to json format
             $.fn.serializeObject = function(){
