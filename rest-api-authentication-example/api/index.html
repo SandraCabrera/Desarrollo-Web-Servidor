@@ -179,7 +179,21 @@
                 showUpdateAccountForm();
             });
             
-            // trigger for updating user account will be here
+            // trigger when 'update account' form is submitted
+            $(document).on('submit', '#update_account_form', function(){
+            
+                // handle for update_account_form
+                var update_account_form=$(this);
+            
+                // validate jwt to verify access
+                var jwt = getCookie('jwt');
+            
+                // get form data and jwt here
+            
+                return false;
+            });
+            
+            // trigger to logout will be here
 
             // remove any prompt messages
             function clearResponse() {
