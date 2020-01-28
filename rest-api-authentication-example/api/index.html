@@ -174,7 +174,12 @@
                 clearResponse();
             });
             
-            // trigger to show account form will be here 
+            // show update account form
+            $(document).on('click', '#update_account', function(){
+                showUpdateAccountForm();
+            });
+            
+            // trigger for updating user account will be here
 
             // remove any prompt messages
             function clearResponse() {
