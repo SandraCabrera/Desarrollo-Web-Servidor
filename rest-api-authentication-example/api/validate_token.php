@@ -53,4 +53,13 @@ if($jwt){
     }
 }
  
-// error if jwt is empty will be here
+// show error message if jwt is empty
+else{
+ 
+    // set response code
+    http_response_code(401);
+ 
+    // tell the user access denied
+    echo json_encode(array("message" => "Access denied."));
+}
+?>
