@@ -42,4 +42,15 @@ if($jwt){
     // catch will be here
 }
  
-// error if jwt is empty will be here
+// if decode fails, it means jwt is invalid
+catch (Exception $e){
+ 
+    // set response code
+    http_response_code(401);
+ 
+    // tell the user access denied  & show error message
+    echo json_encode(array(
+        "message" => "Access denied.",
+        "error" => $e->getMessage()
+    ));
+}
