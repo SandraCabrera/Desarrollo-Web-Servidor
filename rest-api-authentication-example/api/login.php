@@ -17,4 +17,11 @@ $db = $database->getConnection();
 // instantiate user object
 $user = new User($db);
  
-// check email existence here
+// get posted data
+$data = json_decode(file_get_contents("php://input"));
+ 
+// set product property values
+$user->email = $data->email;
+$email_exists = $user->emailExists();
+ 
+// files for jwt will be here
