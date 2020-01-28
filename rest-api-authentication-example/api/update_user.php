@@ -47,7 +47,19 @@ if($jwt){
         $user->password = $data->password;
         $user->id = $decoded->data->id;
         
-        // update user will be here
+        // update the user record
+        if($user->update()){
+            // regenerate jwt will be here
+        }
+        
+        // message if unable to update user
+        else{
+            // set response code
+            http_response_code(401);
+        
+            // show error message
+            echo json_encode(array("message" => "Unable to update user."));
+        }
     }
  
     // if decode fails, it means jwt is invalid
