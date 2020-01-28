@@ -247,7 +247,11 @@
                     showLoggedInMenu();
                 })
             
-                // show login page on error will be here
+                // show login page on error
+                .fail(function(result){
+                    showLoginPage();
+                    $('#response').html("<div class='alert alert-danger'>Please login to access the home page.</div>");
+                });
             }
             
             // get or read cookie
