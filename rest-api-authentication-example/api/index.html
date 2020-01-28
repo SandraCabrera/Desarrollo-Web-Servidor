@@ -179,7 +179,14 @@
                 document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
             }
             
-            // showLoggedOutMenu() will be here
+            // if the user is logged out
+            function showLoggedOutMenu(){
+                // show login and sign up from navbar & hide logout button
+                $("#login, #sign_up").show();
+                $("#logout").hide();
+            }
+            
+            // showHomePage() function will be here
 
             // function to make form values to json format
             $.fn.serializeObject = function(){
