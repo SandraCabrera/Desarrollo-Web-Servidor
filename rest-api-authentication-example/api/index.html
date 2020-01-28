@@ -225,7 +225,22 @@
                 $("#logout").hide();
             }
             
-            // showHomePage() function will be here
+            // show home page
+            function showHomePage(){
+            
+                // validate jwt to verify access
+                var jwt = getCookie('jwt');
+                $.post("api/validate_token.php", JSON.stringify({ jwt:jwt })).done(function(result) {
+            
+                    // home page html will be here
+                })
+            
+                // show login page on error will be here
+            }
+            
+            // getCookie() will be here
+            
+            // showLoggedInMenu() will be here
 
             // function to make form values to json format
             $.fn.serializeObject = function(){
